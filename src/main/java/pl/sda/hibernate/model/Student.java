@@ -29,6 +29,8 @@ public class Student {
     private Double sredniaOcen;
 
     // RELACJE
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "uczen")
     private Set<Ocena> oceny;
 }

@@ -1,10 +1,7 @@
 package pl.sda.hibernate.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -26,7 +23,11 @@ public class Ocena {
     @CreationTimestamp // odpowiednik SQL funkcja: now()
     private LocalDateTime dataCzasDodania;
 
+    @Enumerated(value = EnumType.STRING)
+    private Przedmiot przedmiot;
+
     // RELACJE
     @ManyToOne
+    @EqualsAndHashCode.Exclude
     private Student uczen; // kolumna student_id
 }
